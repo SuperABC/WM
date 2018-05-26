@@ -1,10 +1,9 @@
 function login(){
-    alert("success");
+    window.open('../Main/user.html');
 }
 function signup(){
-    alert("success");
-    location.href='sign.html'
+    window.open('sign.html');
 }
 function tourvisit(){
-    alert("success");
+    window.open('search.html');
 }
