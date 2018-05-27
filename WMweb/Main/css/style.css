@@ -25,14 +25,14 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
-  margin-left: 0%;
+  margin-left: 0;
   *margin-left: -0.06944444444444445%;
 }
 .row-merge [class*="span"]:first-child {
   margin-left: 0;
 }
 .row-merge .controls-row [class*="span"] + [class*="span"] {
-  margin-left: 0%;
+  margin-left: 0;
 }
 .row-merge .span12 {
   width: 99.99999999999999%;
@@ -557,21 +557,18 @@ label {
 .btn-share-sm:hover .icon-s-facebook:after,
 .btn-share-xs:hover .icon-s-facebook:after {
     background: #3B5998;
-    background: #4668B3;
 }
 .btn-share-lg:hover .icon-s-gplus:after,
 .btn-share-md:hover .icon-s-gplus:after,
 .btn-share-sm:hover .icon-s-gplus:after,
 .btn-share-xs:hover .icon-s-gplus:after {
     background: #DD4B39;
-    background: #DE5745;
 }
 .btn-share-lg:hover .icon-s-twitter:after,
 .btn-share-md:hover .icon-s-twitter:after,
 .btn-share-sm:hover .icon-s-twitter:after,
 .btn-share-xs:hover .icon-s-twitter:after {
     background: #00ACED;
-    background: #2FBBED;
 }
 .btn-share-lg p,
 .btn-share-md p,
@@ -1243,7 +1240,6 @@ margin: 20px auto 40px;
   border-color: transparent !important;
   color: #a5b3bf;
   -o-transition: background-color 0.3s linear;
-  -ms-transition: background-color 0.3s linear;
   -moz-transition: background-color 0.3s linear;
   -webkit-transition: background-color 0.3s linear;
   /* ...and now override with proper CSS property */
@@ -1269,7 +1265,6 @@ margin: 20px auto 40px;
   height: 100%;
 }
 .section.splash {
-  background: url(../img/header/headerbg.jpg) fixed no-repeat;
   position: relative;
   z-index: 1;
 }
@@ -1473,7 +1468,6 @@ margin: 20px auto 40px;
   height: 100%;
   line-height: 20px;
   -o-transition: opacity .3s linear;
-  -ms-transition: opacity .3s linear;
   -moz-transition: opacity .3s linear;
   -webkit-transition: opacity .3s linear;
   /* ...and now override with proper CSS property */
@@ -1541,7 +1535,7 @@ margin: 20px auto 40px;
 .panel-default {
 	border-color: #ddd
 }
-.panel-heading h1 { margin-bottom: 0px; }
+.panel-heading h1 { margin-bottom: 0; }
 .panel-default>.panel-heading {
 	color: #333;
 	background-color: #f5f5f5;
@@ -1632,7 +1626,7 @@ margin: 20px auto 40px;
 	padding: 8px;
 	line-height: 1.428571429;
 	vertical-align: top;
-	border-top: 0px solid #ddd
+	border-top: 0 solid #ddd
 }
 .panel-body { padding:0; }
 .table>thead>tr>th {
@@ -1873,7 +1867,7 @@ padding: 25px;
     margin: 0;
 }
 .social li {
-    font-family: 'fontello-social';
+    font-family: 'fontello-social', 'sans-serif';
     margin-right: 4px;
 }
 .social li {
@@ -1921,27 +1915,21 @@ padding: 25px;
 }
 .social a .fa-facebook:after {
     background: #3B5998;
-    background: #4668B3;
 }
 .social a .fa-google-plus:after {
     background: #DD4B39;
-    background: #DE5745;
 }
 .social a .fa-twitter:after {
     background: #00ACED;
-    background: #2FBBED;
 }
 .social a .fa-pinterest:after {
     background: #CB2027;
-    background: #D94348;
 }
 .social a .fa-behance:after {
     background: #1769FF;
-    background: #3079FF;
 }
 .social a .fa-dribbble:after {
     background: #EA4C89;
-    background: #EB6397;
 }
 
 
@@ -2071,8 +2059,8 @@ padding: 25px;
     margin-right: 100px;
 }
 .card-explanation{
-    font-size: 32px;
-    margin: 32px;
+    font-size: 24px;
+    padding: 24px;
 }
 .brandpad{
     padding-left: 2%;
