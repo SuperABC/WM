@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6875dc3e-c329-426f-9a1b-7d0c05fe71b5" name="Default" comment="Account page.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Main/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/learning.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/learning.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/quiz.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/quiz.html" afterDir="false" />
-    </list>
+    <list default="true" id="6875dc3e-c329-426f-9a1b-7d0c05fe71b5" name="Default" comment="" />
     <ignored path="WM.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,10 +19,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Login/welcome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
+            <state relative-caret-position="720">
               <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
             </state>
           </provider>
@@ -120,23 +113,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="account.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/account.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="690">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="n#style#0;n#i#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="1927" column="4" selection-start-line="1927" selection-start-column="4" selection-end-line="1927" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -196,11 +180,11 @@
         <option value="$PROJECT_DIR$/Main/note.html" />
         <option value="$PROJECT_DIR$/Main/js/word.js" />
         <option value="$PROJECT_DIR$/Login/js/welcome.js" />
-        <option value="$PROJECT_DIR$/Main/css/style.css" />
         <option value="$PROJECT_DIR$/Main/quiz.html" />
         <option value="$PROJECT_DIR$/Main/detail.html" />
         <option value="$PROJECT_DIR$/Main/learning.html" />
         <option value="$PROJECT_DIR$/Main/account.html" />
+        <option value="$PROJECT_DIR$/Main/css/style.css" />
       </list>
     </option>
   </component>
@@ -213,7 +197,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1555" />
@@ -351,7 +335,7 @@
       <workItem from="1527078383253" duration="6462000" />
       <workItem from="1527176187269" duration="5067000" />
       <workItem from="1527301541412" duration="10825000" />
-      <workItem from="1527353030190" duration="3768000" />
+      <workItem from="1527353030190" duration="4678000" />
     </task>
     <task id="LOCAL-00001" summary="Welcome page jump.">
       <created>1527384526514</created>
@@ -360,19 +344,26 @@
       <option name="project" value="LOCAL" />
       <updated>1527384526514</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Account page.">
+      <created>1527402850302</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1527402850302</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50383000" />
+    <option name="totallyTimeSpent" value="51293000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20117188" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20117188" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" sideWeight="0.49934897" visible="true" weight="0.32872927" />
+      <window_info anchor="bottom" id="Messages" sideWeight="0.49934897" weight="0.32872927" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50065106" side_tool="true" visible="true" weight="0.32872927" />
       <window_info anchor="bottom" id="Version Control" order="10" />
@@ -896,13 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="1927" column="4" selection-start-line="1927" selection-start-column="4" selection-end-line="1927" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main/quiz.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
@@ -940,20 +924,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/account.html">
+    <entry file="file://$PROJECT_DIR$/Login/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="720">
+          <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Login/welcome.html">
+    <entry file="file://$PROJECT_DIR$/Main/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+        <state relative-caret-position="145">
+          <caret line="1628" column="17" selection-start-line="1628" selection-start-column="17" selection-end-line="1628" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
