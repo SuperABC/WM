@@ -14,11 +14,19 @@ function logOut(){
     window.location.href='../Login/welcome.html'
 }
 
-function jsReadFiles() {
-    var fso = new ActiveXObject("Scripting.FileSystemObject");
+function login(){
+    var socket = new WebSocket('http://localhost:4497');
 
-    var f1 = fso.createtextfile("test.txt",true);
+    socket.onopen = function(event) { 
 
-    alert("File last modified: " + f1.DateLastModified);
+        socket.send('I am the client and I\'m listening!'); 
+      
+        socket.onmessage = function(event) { 
+          console.log('Client received a message',event); 
+        }; 
+      
+        socket.onclose = function(event) { 
+          console.log('Client notified socket has closed',event); 
+        }; 
+    }; 
 }
-jsReadFiles();

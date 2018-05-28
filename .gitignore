@@ -1,0 +1,13 @@
+
+WMweb/Server/WMServer/.vs/WMServer/v15/Browse.VC.db
+WMweb/Server/WMServer/WMServer/WMServer.vcxproj
+WMweb/Server/WMServer/.vs/WMServer/v15/Browse.VC.opendb
+WMweb/Server/WMServer/.vs/WMServer/v15/.suo
+WMweb/Server/WMServer/WMServer/WMServer.vcxproj.filters
+*.ipch
+*.ilk
+*.pdb
+*.obj
+*.log
+*.tlog
+*.idb
