@@ -13,3 +13,12 @@ function gotoUser(){
 function logOut(){
     window.location.href='../Login/welcome.html'
 }
+
+function jsReadFiles() {
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+
+    var f1 = fso.createtextfile("test.txt",true);
+
+    alert("File last modified: " + f1.DateLastModified);
+}
+jsReadFiles();
