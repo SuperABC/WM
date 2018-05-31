@@ -24,3 +24,10 @@ function gotoUser(){
 function logOut(){
     window.location.href='../Login/welcome.html';
 }
+
+function singleSearch(word){
+
+}
+function multiSearch(word){
+
+}
