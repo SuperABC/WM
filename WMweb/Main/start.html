@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Search Result</title>
+    <title>Get Start</title>
     <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
     <link type="text/css" href="css/style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,25 +21,31 @@
         </div>
     </nav>
     <div class="mainframe">
-        <div class="row">
-            <input type="text" style="width:88%" title="word" id="input">
-            <button class="btn" style="width:10%; margin:0.5%; padding:0" onclick="queryWord()">Search</button>
-        </div>
         <div class="collection">
-            <a href="#" class="collection-item active" id="output">a</a>
-            <a href="#" class="collection-item">abandon</a>
-            <a href="#" class="collection-item">abc</a>
+            <a href="#" class="collection-item" onclick="gotoMidexam()">中考</a>
+            <a href="#" class="collection-item">高考</a>
+            <a href="#" class="collection-item">大学四级</a>
+            <a href="#" class="collection-item">大学六级</a>
+            <a href="#" class="collection-item">雅思</a>
+            <a href="#" class="collection-item">托福</a>
+            <a href="#" class="collection-item">GRE</a>
         </div>
-        <ul class="pagination">
-            <li class="disabled"><a href="#"><i class="material-icons">&lt;</i></a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li class="waves-effect"><a href="#">2</a></li>
-            <li class="waves-effect"><a href="#">3</a></li>
-            <li class="waves-effect"><a href="#">4</a></li>
-            <li class="waves-effect"><a href="#">5</a></li>
-            <li class="waves-effect"><a href="#"><i class="material-icons">&gt;</i></a></li>
-        </ul>
     </div>
+
+    <script>
+        function gotoMidexam(){
+            $.ajax({
+                data: "add_plan&" + id.split('=')[1] + '&midexam',
+                url: 'http://127.0.0.1:4497',
+                dataType: "jsonp",
+                jsonp: "callback",
+                jsonpCallback: "success_jsonpCallback"
+            }).done(function (res) {
+                if(res==='success')
+                    window.location.href='learning.html?' + id;
+            });
+        }
+    </script>
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>

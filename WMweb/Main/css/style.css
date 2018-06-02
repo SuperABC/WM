@@ -2054,13 +2054,13 @@ padding: 25px;
     margin: 10px;
 }
 .card-word{
-    font-size: 72px;
+    font-size: 64px;
     margin-left: 20px;
     margin-right: 100px;
 }
 .card-explanation{
-    font-size: 24px;
-    padding: 24px;
+    font-size: 16px;
+    padding: 12px;
 }
 .brandpad{
     padding-left: 2%;

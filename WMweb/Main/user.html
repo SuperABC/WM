@@ -63,8 +63,7 @@
                     It's a precious habit to persist in working on one thing. Now focus on remembering these word and start today's learning.
                 </div>
             </div>
-            
-            
+
             <div class="row">
                 <div style="text-align: center">
                     <a onclick="gotoRandLearn()">
@@ -105,9 +104,7 @@
                 </div>
 
 			</div>
-            
-           
-            
+
         </div>
     </div>
 
@@ -198,11 +195,26 @@
             window.location.href='learning.html?' + id + '&random';
         }
         function gotoPlanLearn(){
-            window.location.href='learning.html?' + id + '&plan';
+            $.ajax({
+                data: "find_plan&" + id.split('=')[1],
+                url: 'http://127.0.0.1:4497',
+                dataType: "jsonp",
+                jsonp: "callback",
+                jsonpCallback: "success_jsonpCallback"
+            }).done(function (res) {
+                if(res!=='')
+                    window.location.href='learning.html?' + id;
+                else {
+                    if(confirm("暂无背诵计划，是否创建背诵计划？")){
+                        window.location.href='start.html?' + id;
+                    }
+                }
+            });
         }
     </script>
 
     <!--Scripts-->
+    <script type="text/javascript" src="js/word.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/owl.carousel.min.js"></script>
@@ -211,6 +223,5 @@
     <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
     <script src="js/jquery.fancybox.pack.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" src="js/word.js"></script>
 </body>
 </html>

@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/word.js"></script>
     <nav>
         <div class="amber nav-wrapper">
             <div class="brandpad">
@@ -21,66 +24,195 @@
         </div>
     </nav>
 
-    <div class="carousel" style="height: 640px; padding-top: 0">
-        <a class="carousel-item" style="width: 400px;">
+    <button class="btn" style="margin:2%; padding-top:0" onclick="alert()">变更计划</button>
+    <div class="carousel" style="height: 120%;" id="whole">
+        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
-                    <span class="card-word">ABC</span>
-                    <br><br><br><br>
-                    <p class="card-explanation">Explanation.</p>
-                    <br><br>
+                    <span class="card-word" id="title1">ABC</span>
+                    <p class="card-explanation" id="trans1">Translation.</p>
+                    <p class="card-explanation" id="examp1">Examples.</p>
                     <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
                 </div>
             </div>
         </a>
-        <a class="carousel-item" style="width: 400px;">
+        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
-                    <span class="card-word">ABC</span>
-                    <br><br><br><br>
-                    <p class="card-explanation">Explanation.</p>
-                    <br><br>
+                    <span class="card-word" id="title2">ABC</span>
+                    <p class="card-explanation" id="trans2">Translation.</p>
+                    <p class="card-explanation" id="examp2">Examples.</p>
                     <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
                 </div>
             </div>
         </a>
-        <a class="carousel-item" style="width: 400px;">
+        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
-                    <span class="card-word">ABC</span>
-                    <br><br><br><br>
-                    <p class="card-explanation">Explanation.</p>
-                    <br><br>
+                    <span class="card-word" id="title3">ABC</span>
+                    <p class="card-explanation" id="trans3">Translation.</p>
+                    <p class="card-explanation" id="examp3">Examples.</p>
                     <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
                 </div>
             </div>
         </a>
-        <a class="carousel-item" style="width: 400px;">
+        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
-                    <span class="card-word">ABC</span>
-                    <br><br><br><br>
-                    <p class="card-explanation">Explanation.</p>
-                    <br><br>
+                    <span class="card-word" id="title4">ABC</span>
+                    <p class="card-explanation" id="trans4">Translation.</p>
+                    <p class="card-explanation" id="examp4">Examples.</p>
                     <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
                 </div>
             </div>
         </a>
-        <a class="carousel-item" style="width: 400px;">
+        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
-                    <span class="card-word">ABC</span>
-                    <br><br><br><br>
-                    <p class="card-explanation">Explanation.</p>
-                    <br><br>
+                    <span class="card-word" id="title5">ABC</span>
+                    <p class="card-explanation" id="trans5">Translation.</p>
+                    <p class="card-explanation" id="examp5">Examples.</p>
+                    <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
+                </div>
+            </div>
+        </a>
+        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
+            <div class="cardframe card cyan darken-1">
+                <div class="card-content white-text">
+                    <span class="card-word" id="title6">ABC</span>
+                    <p class="card-explanation" id="trans6">Translation.</p>
+                    <p class="card-explanation" id="examp6">Examples.</p>
+                    <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
+                </div>
+            </div>
+        </a>
+        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
+            <div class="cardframe card cyan darken-1">
+                <div class="card-content white-text">
+                    <span class="card-word" id="title7">ABC</span>
+                    <p class="card-explanation" id="trans7">Translation.</p>
+                    <p class="card-explanation" id="examp7">Examples.</p>
+                    <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
+                </div>
+            </div>
+        </a>
+        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
+            <div class="cardframe card cyan darken-1">
+                <div class="card-content white-text">
+                    <span class="card-word" id="title8">ABC</span>
+                    <p class="card-explanation" id="trans8">Translation.</p>
+                    <p class="card-explanation" id="examp8">Examples.</p>
                     <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
                 </div>
             </div>
         </a>
     </div>
+    <script>
+        $.ajaxSettings.async = false;
+        $.ajax({
+            data: "fetch_plan&" + id.split('=')[1],
+            url: 'http://127.0.0.1:4497',
+            dataType: "jsonp",
+            jsonp: "callback",
+            jsonpCallback: "success_jsonpCallback"
+        }).done(function (res) {
+            document.getElementById("title1").innerText = res[0].word;
+            $.ajax({
+                data: "word_search&" + res[0].word,
+                url: 'http://127.0.0.1:4497',
+                dataType: "jsonp",
+                jsonp: "callback",
+                jsonpCallback: "success_jsonpCallback"
+            }).done(function (res1) {
+                document.getElementById("trans1").innerText = JSON.parse(res1).trans;
+                document.getElementById("examp1").innerText = JSON.parse(res1).examp;
 
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="js/word.js"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+                document.getElementById("title2").innerText = res[1].word;
+                $.ajax({
+                    data: "word_search&" + res[1].word,
+                    url: 'http://127.0.0.1:4497',
+                    dataType: "jsonp",
+                    jsonp: "callback",
+                    jsonpCallback: "success_jsonpCallback"
+                }).done(function (res2) {
+                    document.getElementById("trans2").innerText = JSON.parse(res2).trans;
+                    document.getElementById("examp2").innerText = JSON.parse(res2).examp;
+
+                    document.getElementById("title3").innerText = res[2].word;
+                    $.ajax({
+                        data: "word_search&" + res[2].word,
+                        url: 'http://127.0.0.1:4497',
+                        dataType: "jsonp",
+                        jsonp: "callback",
+                        jsonpCallback: "success_jsonpCallback"
+                    }).done(function (res3) {
+                        document.getElementById("trans3").innerText = JSON.parse(res3).trans;
+                        document.getElementById("examp3").innerText = JSON.parse(res3).examp;
+
+                        document.getElementById("title4").innerText = res[3].word;
+                        $.ajax({
+                            data: "word_search&" + res[3].word,
+                            url: 'http://127.0.0.1:4497',
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            jsonpCallback: "success_jsonpCallback"
+                        }).done(function (res4) {
+                            document.getElementById("trans4").innerText = JSON.parse(res4).trans;
+                            document.getElementById("examp4").innerText = JSON.parse(res4).examp;
+
+                            document.getElementById("title5").innerText = res[4].word;
+                            $.ajax({
+                                data: "word_search&" + res[4].word,
+                                url: 'http://127.0.0.1:4497',
+                                dataType: "jsonp",
+                                jsonp: "callback",
+                                jsonpCallback: "success_jsonpCallback"
+                            }).done(function (res5) {
+                                document.getElementById("trans5").innerText = JSON.parse(res5).trans;
+                                document.getElementById("examp5").innerText = JSON.parse(res5).examp;
+
+                                document.getElementById("title6").innerText = res[5].word;
+                                $.ajax({
+                                    data: "word_search&" + res[5].word,
+                                    url: 'http://127.0.0.1:4497',
+                                    dataType: "jsonp",
+                                    jsonp: "callback",
+                                    jsonpCallback: "success_jsonpCallback"
+                                }).done(function (res6) {
+                                    document.getElementById("trans6").innerText = JSON.parse(res6).trans;
+                                    document.getElementById("examp6").innerText = JSON.parse(res6).examp;
+
+                                    document.getElementById("title7").innerText = res[6].word;
+                                    $.ajax({
+                                        data: "word_search&" + res[6].word,
+                                        url: 'http://127.0.0.1:4497',
+                                        dataType: "jsonp",
+                                        jsonp: "callback",
+                                        jsonpCallback: "success_jsonpCallback"
+                                    }).done(function (res7) {
+                                        document.getElementById("trans7").innerText = JSON.parse(res7).trans;
+                                        document.getElementById("examp7").innerText = JSON.parse(res7).examp;
+
+                                        document.getElementById("title8").innerText = res[7].word;
+                                        $.ajax({
+                                            data: "word_search&" + res[7].word,
+                                            url: 'http://127.0.0.1:4497',
+                                            dataType: "jsonp",
+                                            jsonp: "callback",
+                                            jsonpCallback: "success_jsonpCallback"
+                                        }).done(function (res8) {
+                                            document.getElementById("trans8").innerText = JSON.parse(res8).trans;
+                                            document.getElementById("examp8").innerText = JSON.parse(res8).examp;
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
