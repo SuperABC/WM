@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Note Review</title>
+    <title>Note words</title>
     <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
     <link type="text/css" href="css/style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/word.js"></script>
@@ -18,19 +19,17 @@
             </div>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="note.html">Note</a></li>
-                <li><a href="account.html">User</a></li>
+                <li><a href="account.html" id="userid">User</a></li>
                 <li><a href="../Login/welcome.html">Logout</a></li>
             </ul>
         </div>
     </nav>
-
     <div class="mainframe">
-        <button class="btn" style="padding-top:0" onclick="createNote()">新建notebook</button>
         <table class="brown-text">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Total words</th>
+                <th style="width:10%">Word</th>
+                <th>Translation</th>
                 <th></th>
             </tr>
             </thead>
@@ -38,41 +37,14 @@
             <tbody>
             <tr>
                 <td>
-                    <a href="list.html" id="name">Test</a>
+                    <a href="#" id="word">ABC</a>
                 </td>
-                <td>0</td>
+                <td>Explanation.</td>
                 <td>Delete</td>
             </tr>
             </tbody>
         </table>
     </div>
-
-    <script>
-
-        $.ajax({
-            data: "note_list&" + id.split('=')[1],
-            url: 'http://127.0.0.1:4497',
-            dataType: "jsonp",
-            jsonp: "callback",
-            jsonpCallback: "success_jsonpCallback"
-        }).done(function (res) {
-            document.getElementById("name").innerText = res[0].Tables_in_wordmember;
-        });
-
-        function createNote() {
-            let notename = prompt("notebook name:");
-            $.ajax({
-                data: "create_note&" + id.split('=')[1] + '&' + notename,
-                url: 'http://127.0.0.1:4497',
-                dataType: "jsonp",
-                jsonp: "callback",
-                jsonpCallback: "success_jsonpCallback"
-            }).done(function (res) {
-                if (res === "success")
-                    alert("Create notebook success");
-            });
-        }
-    </script>
 
 </body>
 </html>

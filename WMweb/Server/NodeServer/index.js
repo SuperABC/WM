@@ -82,7 +82,7 @@ function handle(data, res){
         });
     }
     else if(data[1]==="add_plan"){
-        let queryStr = 'insert into milestone values(\'' + data[2] + '\', \'' + data[2] + '\', 0, 8);';
+        let queryStr = 'insert into milestone values(\'' + data[2] + '\', \'' + data[3] + '\', 0, 8);';
         connection.query(queryStr, function(err, rows) {
             if (err) console.log(err);
             res.writeHead(200, {'Content-Type': 'application/json'});
@@ -99,12 +99,54 @@ function handle(data, res){
                 connection.query(queryStr2, function(err, contents) {
                     if (err) console.log(err);
                     if(contents.length>0) {
-                        console.log(contents);
                         res.writeHead(200, {'Content-Type': 'application/json'});
                         let json = JSON.stringify(contents);
                         res.end('success_jsonpCallback(' + json + ')');
                     }
                 });
+            }
+        });
+    }
+    else if(data[1]==="create_note"){
+        if(data[3].length) {
+            let queryStr = 'create table ' + data[2] + '__note__' + data[3] + '(word varchar(40));';
+            connection.query(queryStr, function (err, rows) {
+                if (err) console.log(err);
+                else {
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    let json = JSON.stringify("success");
+                    res.end('success_jsonpCallback(' + json + ')');
+                }
+            });
+        }
+    }
+    else if(data[1]==="note_list"){
+        let queryStr = "show tables where Tables_in_wordmember like \'" + data[2] + "__note__%\';";
+        connection.query(queryStr, function (err, rows) {
+            if (err) console.log(err);
+            else {
+                res.writeHead(200, {'Content-Type': 'application/json'});
+                let json = JSON.stringify(rows);
+                res.end('success_jsonpCallback(' + json + ')');
+            }
+        });
+    }
+    else if(data[1]==="get_quiz"){
+        let queryStr1 = "select wordset from milestone where id = \'" + data[2] + "\';";
+        connection.query(queryStr1, function (err, rows) {
+            if (err) console.log(err);
+            else {
+                if(rows[0] && rows[0].wordset) {
+                    let queryStr2 = "select word from " + rows[0].wordset + " where num=(select num from memrecord where id=\'" + data[2] + "\' and reviewed=0);";
+                    connection.query(queryStr2, function (err, rows) {
+                        if (err) console.log(err);
+                        else {
+                            res.writeHead(200, {'Content-Type': 'application/json'});
+                            let json = JSON.stringify(rows[0]);
+                            res.end('success_jsonpCallback(' + json + ')');
+                        }
+                    });
+                }
             }
         });
     }

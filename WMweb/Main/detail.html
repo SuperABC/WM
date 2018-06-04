@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/word.js"></script>
     <nav>
         <div class="amber nav-wrapper">
             <div class="brandpad">
@@ -15,7 +19,7 @@
             </div>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="note.html">Note</a></li>
-                <li><a href="account.html">User</a></li>
+                <li><a href="account.html" id="userid">User</a></li>
                 <li><a href="../Login/welcome.html">Logout</a></li>
             </ul>
         </div>
@@ -34,10 +38,20 @@
             </div>
         </div>
     </div>
+    <script>
+        $.ajax({
+            data: "word_search&" + paras[1].split('=')[1],
+            url: 'http://127.0.0.1:4497',
+            dataType: "jsonp",
+            jsonp: "callback",
+            jsonpCallback: "success_jsonpCallback"
+        }).done(function (res) {
+            let tmp = JSON.parse(res);
+            document.getElementById("title").innerText=tmp.word;
+            document.getElementById("trans").innerText=tmp.trans;
+            document.getElementById("examp").innerText=tmp.examp;
+        });
+    </script>
 
-
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="js/word.js"></script>
 </body>
 </html>

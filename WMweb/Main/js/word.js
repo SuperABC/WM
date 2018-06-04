@@ -8,22 +8,6 @@ if(paras.length > 1) {
     if(document.getElementById("userid"))
         document.getElementById("userid").innerText = 'User:' + window.location.href.split('?')[1].split('=')[1];
 
-    if(paras.length>1){
-        if(paras[1].split('=')[0] === "word"){
-            $.ajax({
-                data: "word_search&" + paras[1].split('=')[1],
-                url: 'http://127.0.0.1:4497',
-                dataType: "jsonp",
-                jsonp: "callback",
-                jsonpCallback: "success_jsonpCallback"
-            }).done(function (res) {
-                let tmp = JSON.parse(res);
-                document.getElementById("title").innerText=tmp.word;
-                document.getElementById("trans").innerText=tmp.trans;
-                document.getElementById("examp").innerText=tmp.examp;
-            });
-        }
-    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
