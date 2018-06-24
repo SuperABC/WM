@@ -17,9 +17,9 @@
                 <a href="#" class="brand-logo">Word Member</a>
             </div>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="note.html">Note</a></li>
-                <li><a href="account.html">User</a></li>
-                <li><a href="../Login/welcome.html">Logout</a></li>
+                <li><a onclick="gotoNote()">Note</a></li>
+                <li><a onclick="gotoUser()" id="userid">User</a></li>
+                <li><a onclick="logOut()">Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -35,19 +35,19 @@
             </tr>
             </thead>
 
-            <tbody>
-            <tr>
-                <td>
-                    <a href="list.html" id="name">Test</a>
-                </td>
-                <td>0</td>
-                <td>Delete</td>
-            </tr>
+            <tbody id="notelist">
             </tbody>
         </table>
     </div>
 
     <script>
+        function addItem(note){
+            let item=document.createElement("tr");
+            item.innerHTML="<tr><td>\n<a onclick=\"enterNote('"+note+"')\">"+note+"</a>\n</td>\n"+
+                "<td>0</td>\n"+
+                "<td>Delete</td></tr>";
+            document.getElementById("notelist").appendChild(item);
+        }
 
         $.ajax({
             data: "note_list&" + id.split('=')[1],
@@ -56,8 +56,14 @@
             jsonp: "callback",
             jsonpCallback: "success_jsonpCallback"
         }).done(function (res) {
-            document.getElementById("name").innerText = res[0].Tables_in_wordmember;
+            for(let i = 0; i < res.length; i++){
+                addItem(res[i].Tables_in_wordmember);
+            }
         });
+
+        function enterNote(name){
+            window.location.href='list.html?' + id + '&note=' + name;
+        }
 
         function createNote() {
             let notename = prompt("notebook name:");

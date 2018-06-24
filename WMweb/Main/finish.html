@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz finish</title>
+    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+    <link type="text/css" href="css/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/materialize.js"></script>
+<script type="text/javascript" src="js/word.js"></script>
+<nav>
+    <div class="amber nav-wrapper">
+        <div class="brandpad">
+            <a href="#" class="brand-logo">Word Member</a>
+        </div>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a onclick="gotoNote()">Note</a></li>
+            <li><a onclick="gotoUser()" id="userid">User</a></li>
+            <li><a onclick="logOut()">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="mainframe">
+    <input type="text" class="datepicker" title="quiz date.">
+</div>
+
+<div class="mainframe">
+    <div class="cardframe card cyan darken-1">
+        <div class="card-content white-text">
+            <p >You have finish today's review.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

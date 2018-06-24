@@ -17,9 +17,9 @@
                 <a href="#" class="brand-logo">Word Member</a>
             </div>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="note.html">Note</a></li>
-                <li><a href="account.html" id="userid">User</a></li>
-                <li><a href="../Login/welcome.html">Logout</a></li>
+                <li><a onclick="gotoNote()">Note</a></li>
+                <li><a onclick="gotoUser()" id="userid">User</a></li>
+                <li><a onclick="logOut()">Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -40,6 +40,7 @@
 
     <script>
         let answrer = null;
+        let num=0;
         $.ajax({
             data: "get_quiz&" + id.split('=')[1],
             url: 'http://127.0.0.1:4497',
@@ -48,6 +49,7 @@
             jsonpCallback: "success_jsonpCallback"
         }).done(function (res) {
             answrer=res.word;
+            num=res.num;
             $.ajax({
                 data: "word_search&" + res.word,
                 url: 'http://127.0.0.1:4497',
@@ -61,7 +63,29 @@
         });
 
         function judge() {
-            alert(document.getElementById("answer").value===answrer);
+            if(document.getElementById("answer").value===answrer){
+                $.ajax({
+                    data: "quiz_right&" + id.split('=')[1] + "&" + num,
+                    url: 'http://127.0.0.1:4497',
+                    dataType: "jsonp",
+                    jsonp: "callback",
+                    jsonpCallback: "success_jsonpCallback"
+                }).done(function (res) {
+                    if(res==="success")
+                        location.reload();
+                });
+            }
+            else{
+                $.ajax({
+                    data: "quiz_wrong&" + id.split('=')[1] + "&" + num,
+                    url: 'http://127.0.0.1:4497',
+                    dataType: "jsonp",
+                    jsonp: "callback",
+                    jsonpCallback: "success_jsonpCallback"
+                }).done(function (res) {
+
+                });
+            }
         }
     </script>
 </body>

@@ -18,9 +18,9 @@
                 <a href="#" class="brand-logo">Word Member</a>
             </div>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="note.html">Note</a></li>
-                <li><a href="account.html" id="userid">User</a></li>
-                <li><a href="../Login/welcome.html">Logout</a></li>
+                <li><a onclick="gotoNote()">Note</a></li>
+                <li><a onclick="gotoUser()" id="userid">User</a></li>
+                <li><a onclick="logOut()">Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -34,17 +34,35 @@
             </tr>
             </thead>
 
-            <tbody>
-            <tr>
-                <td>
-                    <a href="#" id="word">ABC</a>
-                </td>
-                <td>Explanation.</td>
-                <td>Delete</td>
-            </tr>
+            <tbody id="wordlist">
             </tbody>
         </table>
     </div>
+    <script>
+        function addItem(word){
+            let item=document.createElement("tr");
+            item.innerHTML="<tr>\n<td>\n<a onclick=\"gotoWord('"+word+"')\">"+word+"</a>\n</td>\n"+
+                "<td>Explanation.</td>\n"+
+                "<td>Delete</td>\n</tr>";
+            document.getElementById("wordlist").appendChild(item);
+        }
+
+        $.ajax({
+            data: "note_words&" + paras[1].split('=')[1],
+            url: 'http://127.0.0.1:4497',
+            dataType: "jsonp",
+            jsonp: "callback",
+            jsonpCallback: "success_jsonpCallback"
+        }).done(function (res) {
+            for(let i = 0; i < res.length; i++){
+                addItem(res[i].word);
+            }
+        });
+
+        function gotoWord(word){
+            window.location.href='detail.html?' + id + '&word=' + word;
+        }
+    </script>
 
 </body>
 </html>

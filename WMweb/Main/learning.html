@@ -17,97 +17,102 @@
                 <a href="#" class="brand-logo">Word Member</a>
             </div>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="note.html">Note</a></li>
-                <li><a href="account.html" id="userid">User</a></li>
-                <li><a href="../Login/welcome.html">Logout</a></li>
+                <li><a onclick="gotoNote()">Note</a></li>
+                <li><a onclick="gotoUser()" id="userid">User</a></li>
+                <li><a onclick="logOut()">Logout</a></li>
             </ul>
         </div>
     </nav>
 
     <button class="btn" style="margin:2%; padding-top:0" onclick="alert()">变更计划</button>
+    <button class="btn" style="margin:2%; padding-top:0" onclick="alert()">下一组</button>
     <div class="carousel" style="height: 120%;" id="whole">
-        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
+        <a class="carousel-item" style="width:400px; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
                     <span class="card-word" id="title1">ABC</span>
                     <p class="card-explanation" id="trans1">Translation.</p>
                     <p class="card-explanation" id="examp1">Examples.</p>
-                    <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
+                    <button class="btn waves-effect waves-light" style="padding-top: 0" onclick="addNote(1)">Note</button>
                 </div>
             </div>
         </a>
-        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
+        <a class="carousel-item" style="width:400px; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
                     <span class="card-word" id="title2">ABC</span>
                     <p class="card-explanation" id="trans2">Translation.</p>
                     <p class="card-explanation" id="examp2">Examples.</p>
-                    <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
+                    <button class="btn waves-effect waves-light" style="padding-top: 0" onclick="addNote(2)">Note</button>
                 </div>
             </div>
         </a>
-        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
+        <a class="carousel-item" style="width:400px; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
                     <span class="card-word" id="title3">ABC</span>
                     <p class="card-explanation" id="trans3">Translation.</p>
                     <p class="card-explanation" id="examp3">Examples.</p>
-                    <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
+                    <button class="btn waves-effect waves-light" style="padding-top: 0" onclick="addNote(3)">Note</button>
                 </div>
             </div>
         </a>
-        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
+        <a class="carousel-item" style="width:400px; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
                     <span class="card-word" id="title4">ABC</span>
                     <p class="card-explanation" id="trans4">Translation.</p>
                     <p class="card-explanation" id="examp4">Examples.</p>
-                    <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
+                    <button class="btn waves-effect waves-light" style="padding-top: 0" onclick="addNote(4)">Note</button>
                 </div>
             </div>
         </a>
-        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
+        <a class="carousel-item" style="width:400px; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
                     <span class="card-word" id="title5">ABC</span>
                     <p class="card-explanation" id="trans5">Translation.</p>
                     <p class="card-explanation" id="examp5">Examples.</p>
-                    <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
+                    <button class="btn waves-effect waves-light" style="padding-top: 0" onclick="addNote(5)">Note</button>
                 </div>
             </div>
         </a>
-        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
+        <a class="carousel-item" style="width:400px; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
                     <span class="card-word" id="title6">ABC</span>
                     <p class="card-explanation" id="trans6">Translation.</p>
                     <p class="card-explanation" id="examp6">Examples.</p>
-                    <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
+                    <button class="btn waves-effect waves-light" style="padding-top: 0" onclick="addNote(6)">Note</button>
                 </div>
             </div>
         </a>
-        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
+        <a class="carousel-item" style="width:400px; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
                     <span class="card-word" id="title7">ABC</span>
                     <p class="card-explanation" id="trans7">Translation.</p>
                     <p class="card-explanation" id="examp7">Examples.</p>
-                    <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
+                    <button class="btn waves-effect waves-light" style="padding-top: 0" onclick="addNote(7)">Note</button>
                 </div>
             </div>
         </a>
-        <a class="carousel-item" style="width: 32%; position: absolute; top: -40%;">
+        <a class="carousel-item" style="width:400px; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
                 <div class="card-content white-text">
                     <span class="card-word" id="title8">ABC</span>
                     <p class="card-explanation" id="trans8">Translation.</p>
                     <p class="card-explanation" id="examp8">Examples.</p>
-                    <button class="btn waves-effect waves-light" style="padding-top: 0">Learned</button>
+                    <button class="btn waves-effect waves-light" style="padding-top: 0" onclick="addNote(8)">Note</button>
                 </div>
             </div>
         </a>
     </div>
     <script>
+        function addNodte(num){
+
+        }
+
         $.ajaxSettings.async = false;
         $.ajax({
             data: "fetch_plan&" + id.split('=')[1],

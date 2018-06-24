@@ -18,14 +18,14 @@
                 <a href="#" class="brand-logo">Word Member</a>
             </div>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="note.html">Note</a></li>
-                <li><a href="account.html" id="userid">User</a></li>
-                <li><a href="../Login/welcome.html">Logout</a></li>
+                <li><a onclick="gotoNote()">Note</a></li>
+                <li><a onclick="gotoUser()" id="userid">User</a></li>
+                <li><a onclick="logOut()">Logout</a></li>
             </ul>
         </div>
     </nav>
     <div class="mainframe">
-        <input type="text" title="input word.">
+        <input type="text" title="input word." onclick="backResult()">
         <div class="row">
             <div class="col s12 m12">
                 <div class="card cyan darken-1">
@@ -33,6 +33,7 @@
                         <span class="card-word" id="title">ABC</span>
                         <p class="card-explanation" id="trans">Explanation.</p>
                         <p class="card-explanation" id="examp">Examples.</p>
+                        <button class="btn waves-effect waves-light" style="padding-top: 0" onclick="addNote()">Add Note</button>
                     </div>
                 </div>
             </div>
@@ -51,6 +52,25 @@
             document.getElementById("trans").innerText=tmp.trans;
             document.getElementById("examp").innerText=tmp.examp;
         });
+
+        function addNote(){
+            let word = document.getElementById("title").innerText;
+
+            $.ajax({
+                data: "add_note&" + id.split('=')[1] + "&abc&" + word,
+                url: 'http://127.0.0.1:4497',
+                dataType: "jsonp",
+                jsonp: "callback",
+                jsonpCallback: "success_jsonpCallback"
+            }).done(function (res) {
+                if(res==="success")
+                    alert("添加成功。");
+            });
+        }
+
+        function backResult(){
+            window.location.href='result.html?' + id;
+        }
     </script>
 
 </body>

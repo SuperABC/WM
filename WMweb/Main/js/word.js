@@ -3,10 +3,12 @@ let id = "";
 if(paras.length > 1) {
     paras = paras[1].split('&');
     id = paras[0];
+    if(id.substr(-1)==="#")
+        id = id.substr(0, id.length-1);
     if (id.split('=')[0] !== "id") id = "";
 
     if(document.getElementById("userid"))
-        document.getElementById("userid").innerText = 'User:' + window.location.href.split('?')[1].split('=')[1];
+        document.getElementById("userid").innerText = 'User:' + id.split('=')[1];
 
 }
 
@@ -19,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Carousel.init(elems, {});
 });
 
+function gotoNote(){
+    window.location.href='note.html?' + id;
+}
 function gotoUser(){
     window.location.href='account.html?' + id;
 }
@@ -26,18 +31,5 @@ function logOut(){
     window.location.href='../Login/welcome.html';
 }
 
-function queryWord(){
-    alert(document.getElementById("input").value);
-    $.ajax({
-        data: "word_search&" + document.getElementById("input").value,
-        url: 'http://127.0.0.1:4497',
-        dataType: "jsonp",
-        jsonp: "callback",
-        jsonpCallback: "success_jsonpCallback"
-    }).done(function (res) {
-        if(JSON.parse(res).length) alert(res);
-        else alert(JSON.parse(res).word);
-    });
-}
 
 

@@ -95,7 +95,7 @@ function handle(data, res){
         connection.query(queryStr1, function(err, wordbase) {
             if (err) console.log(err);
             if(wordbase.length>0) {
-                let queryStr2 = 'select word from ' + wordbase[0].wordset + ' where num >= ' + wordbase[0].base + ' and num < ' + wordbase[0].base + '+8;';
+                let queryStr2 = 'select word from ' + wordbase[0].wordset + ' where num > ' + wordbase[0].base + ' and num <= ' + wordbase[0].base + '+8;';
                 connection.query(queryStr2, function(err, contents) {
                     if (err) console.log(err);
                     if(contents.length>0) {
@@ -108,8 +108,21 @@ function handle(data, res){
         });
     }
     else if(data[1]==="create_note"){
-        if(data[3].length) {
-            let queryStr = 'create table ' + data[2] + '__note__' + data[3] + '(word varchar(40));';
+        if(data[3].length && data[3]!=="null") {
+            let queryStr = 'create table ' + data[2] + '__note__' + data[3] + '(word varchar(40) primary key);';
+            connection.query(queryStr, function (err, rows) {
+                if (err) console.log(err);
+                else {
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    let json = JSON.stringify("success");
+                    res.end('success_jsonpCallback(' + json + ')');
+                }
+            });
+        }
+    }
+    else if(data[1]==="add_note"){
+        if(data[3].length && data[3]!=="null") {
+            let queryStr = 'insert into ' + data[2] + '__note__' + data[3] + ' values("' + data[4] + '");';
             connection.query(queryStr, function (err, rows) {
                 if (err) console.log(err);
                 else {
@@ -131,13 +144,24 @@ function handle(data, res){
             }
         });
     }
+    else if(data[1]==="note_words"){
+        let queryStr = "select word from " + data[2] + ";";
+        connection.query(queryStr, function (err, rows) {
+            if (err) console.log(err);
+            else {
+                res.writeHead(200, {'Content-Type': 'application/json'});
+                let json = JSON.stringify(rows);
+                res.end('success_jsonpCallback(' + json + ')');
+            }
+        });
+    }
     else if(data[1]==="get_quiz"){
         let queryStr1 = "select wordset from milestone where id = \'" + data[2] + "\';";
         connection.query(queryStr1, function (err, rows) {
             if (err) console.log(err);
             else {
                 if(rows[0] && rows[0].wordset) {
-                    let queryStr2 = "select word from " + rows[0].wordset + " where num=(select num from memrecord where id=\'" + data[2] + "\' and reviewed=0);";
+                    let queryStr2 = "select num, word from " + rows[0].wordset + " where num=(select max(num) from memrecord where id=\'" + data[2] + "\' and reviewed=0);";
                     connection.query(queryStr2, function (err, rows) {
                         if (err) console.log(err);
                         else {
@@ -147,6 +171,28 @@ function handle(data, res){
                         }
                     });
                 }
+            }
+        });
+    }
+    else if(data[1]==="quiz_right"){
+        let queryStr = "update memrecord set reviewed = reviewed + 1 where id=\'" + data[2] + "\' and num=" + data[3] + ";";
+        connection.query(queryStr, function (err, rows) {
+            if (err) console.log(err);
+            else {
+                res.writeHead(200, {'Content-Type': 'application/json'});
+                let json = JSON.stringify("success");
+                res.end('success_jsonpCallback(' + json + ')');
+            }
+        });
+    }
+    else if(data[1]==="quiz_wrong"){
+        let queryStr = "update memrecord set reviewed = reviewed - 1 where id=\'" + data[2] + "\' and reviewed>0 and num=" + data[3] + ";";
+        connection.query(queryStr, function (err, rows) {
+            if (err) console.log(err);
+            else {
+                res.writeHead(200, {'Content-Type': 'application/json'});
+                let json = JSON.stringify("success");
+                res.end('success_jsonpCallback(' + json + ')');
             }
         });
     }
