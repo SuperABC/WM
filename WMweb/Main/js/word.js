@@ -14,7 +14,7 @@ if(paras.length > 1) {
 
 document.addEventListener('DOMContentLoaded', function() {
     let elems = document.querySelectorAll('.datepicker');
-    M.Datepicker.init(elems, {});
+    M.Datepicker.init(elems, {format:'yyyy/mm/dd'});
 });
 document.addEventListener('DOMContentLoaded', function() {
     let elems = document.querySelectorAll('.carousel');

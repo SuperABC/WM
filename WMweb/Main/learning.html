@@ -24,8 +24,8 @@
         </div>
     </nav>
 
-    <button class="btn" style="margin:2%; padding-top:0" onclick="alert()">变更计划</button>
-    <button class="btn" style="margin:2%; padding-top:0" onclick="alert()">下一组</button>
+    <button class="btn" style="margin:2%; padding-top:0" onclick="changePlan()">变更计划</button>
+    <button class="btn" style="margin:2%; padding-top:0" onclick="finishLearn()">下一组</button>
     <div class="carousel" style="height: 120%;" id="whole">
         <a class="carousel-item" style="width:400px; position: absolute; top: -40%;">
             <div class="cardframe card cyan darken-1">
@@ -109,8 +109,33 @@
         </a>
     </div>
     <script>
-        function addNodte(num){
-
+        function changePlan(){
+            window.location.href='start.html?' + id;
+        }
+        function finishLearn(){
+            $.ajax({
+                data: "finish_learn&" + id.split('=')[1],
+                url: 'http://127.0.0.1:4497',
+                dataType: "jsonp",
+                jsonp: "callback",
+                jsonpCallback: "success_jsonpCallback"
+            }).done(function (res) {
+                if(res==='success')
+                    location.reload();
+            });
+        }
+        function addNote(num){
+            let word = document.getElementById("title" + num).innerText;
+            $.ajax({
+                data: "add_note&" + id.split('=')[1] + "&abc&" + word,
+                url: 'http://127.0.0.1:4497',
+                dataType: "jsonp",
+                jsonp: "callback",
+                jsonpCallback: "success_jsonpCallback"
+            }).done(function (res) {
+                if(res==="success")
+                    alert("添加成功。");
+            });
         }
 
         $.ajaxSettings.async = false;

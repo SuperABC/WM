@@ -23,12 +23,12 @@
     <div class="mainframe">
         <div class="collection">
             <a href="#" class="collection-item" onclick="gotoMidexam()">中考</a>
-            <a href="#" class="collection-item">高考</a>
-            <a href="#" class="collection-item">大学四级</a>
-            <a href="#" class="collection-item">大学六级</a>
-            <a href="#" class="collection-item">雅思</a>
-            <a href="#" class="collection-item">托福</a>
-            <a href="#" class="collection-item">GRE</a>
+            <a href="#" class="collection-item" onclick="gotoHighexam()">高考</a>
+            <a href="#" class="collection-item" onclick="gotoMidexam()">大学四级</a>
+            <a href="#" class="collection-item" onclick="gotoMidexam()">大学六级</a>
+            <a href="#" class="collection-item" onclick="gotoMidexam()">雅思</a>
+            <a href="#" class="collection-item" onclick="gotoMidexam()">托福</a>
+            <a href="#" class="collection-item" onclick="gotoMidexam()">GRE</a>
         </div>
     </div>
 
@@ -36,6 +36,18 @@
         function gotoMidexam(){
             $.ajax({
                 data: "add_plan&" + id.split('=')[1] + '&midexam',
+                url: 'http://127.0.0.1:4497',
+                dataType: "jsonp",
+                jsonp: "callback",
+                jsonpCallback: "success_jsonpCallback"
+            }).done(function (res) {
+                if(res==='success')
+                    window.location.href='learning.html?' + id;
+            });
+        }
+        function gotoHighexam(){
+            $.ajax({
+                data: "add_plan&" + id.split('=')[1] + '&highexam',
                 url: 'http://127.0.0.1:4497',
                 dataType: "jsonp",
                 jsonp: "callback",

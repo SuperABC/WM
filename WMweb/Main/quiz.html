@@ -24,7 +24,7 @@
         </div>
     </nav>
     <div class="mainframe">
-        <input type="text" class="datepicker" title="quiz date.">
+        <input type="text" class="datepicker" title="quiz date." id="setdate">
     </div>
 
     <div class="mainframe">
@@ -41,15 +41,58 @@
     <script>
         let answrer = null;
         let num=0;
+        document.getElementById("setdate").onchange = function(){
+            $.ajax({
+                data: "get_quiz&" + id.split('=')[1] + "&" + document.getElementById("setdate").value,
+                url: 'http://127.0.0.1:4497',
+                dataType: "jsonp",
+                jsonp: "callback",
+                jsonpCallback: "success_jsonpCallback"
+            }).done(function (res) {
+                if(res==="none"){
+                    window.location.href='finish.html?' + id;
+                    return;
+                }
+                answrer=res.word;
+                num=res.row;
+                $.ajax({
+                    data: "word_search&" + res.word,
+                    url: 'http://127.0.0.1:4497',
+                    dataType: "jsonp",
+                    jsonp: "callback",
+                    jsonpCallback: "success_jsonpCallback"
+                }).done(function (res) {
+                    let tmp = JSON.parse(res);
+                    document.getElementById("trans").innerText=tmp.trans;
+                });
+            });
+        };
+
+        let date = new Date();
+        let seperator = "/";
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        document.getElementById("setdate").value = year + seperator + month + seperator + strDate;
         $.ajax({
-            data: "get_quiz&" + id.split('=')[1],
+            data: "get_quiz&" + id.split('=')[1] + "&" + document.getElementById("setdate").value,
             url: 'http://127.0.0.1:4497',
             dataType: "jsonp",
             jsonp: "callback",
             jsonpCallback: "success_jsonpCallback"
         }).done(function (res) {
+            if(res==="none"){
+                window.location.href='finish.html?' + id;
+                return;
+            }
             answrer=res.word;
-            num=res.num;
+            num=res.row;
             $.ajax({
                 data: "word_search&" + res.word,
                 url: 'http://127.0.0.1:4497',
