@@ -42,8 +42,13 @@ function handle(data, res){
             }
         });
     }
+    else if(data[1]==="empty_req"){
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        let json = JSON.stringify('success');
+        res.end('success_jsonpCallback(' + json + ')');
+    }
     else if(data[1]==="sign_req"){
-        let queryStr = 'select * from users where id = \'' + data[2] + '\' and password = \'' + data[3] + '\';';
+        let queryStr = 'select * from users where id = \'' + data[2] + '\';';
         connection.query(queryStr, function(err, rows) {
             if (err) console.log(err);
             else {
@@ -53,7 +58,29 @@ function handle(data, res){
                     res.end('success_jsonpCallback(' + json + ')');
                 }
                 else {
-                    let signStr = 'insert into users values (\'' + data[2] + '\', \'' + data[3] + '\');';
+                    let signStr = 'insert into users values (\'' + data[2] + '\', \'' + data[3] + '\', \'' + data[4] + '\');';
+                    connection.query(signStr, function (err) {
+                        if (err) console.log(err);
+                        res.writeHead(200, {'Content-Type': 'application/json'});
+                        let json = JSON.stringify('success');
+                        res.end('success_jsonpCallback(' + json + ')');
+                    });
+                }
+            }
+        });
+    }
+    else if(data[1]==="repass_req"){
+        let queryStr = 'select * from users where id = \'' + data[2] + '\' and email = \'' + data[4] + '\';';
+        connection.query(queryStr, function(err, rows) {
+            if (err) console.log(err);
+            else {
+                if (rows.length === 0) {
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    let json = JSON.stringify('noid');
+                    res.end('success_jsonpCallback(' + json + ')');
+                }
+                else {
+                    let signStr = 'update users set password = \'' + data[3] + '\' where id = \'' + data[2] + '\';';
                     connection.query(signStr, function (err) {
                         if (err) console.log(err);
                         res.writeHead(200, {'Content-Type': 'application/json'});

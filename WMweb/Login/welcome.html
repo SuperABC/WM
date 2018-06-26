@@ -30,15 +30,16 @@
                     <div class="row form-section">
 
                         <div class="form-bottom">
-                            <form role="form" action="" method="post" class="registration-form">
+                            <a role="form" class="registration-form">
                                 <div class="form-group">
                                     <input id="inputid" type="text" placeholder="Your Name..." class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <input id="inputpassword"  type="password" placeholder="Your Password..." class="form-control">
                                 </div>
-                                <a onclick="login()"><button class="tm-btn-subscribe" id="log-in">Log in</button></a>
-                                <button class="tm-btn-subscribe" id="sign-up" onclick="signup()">Sign up</button>
+                                <button class="tm-btn-subscribe" id="log-in" onclick="login()">Log in</button>
+                                <a onclick="signup()"><button class="tm-btn-subscribe" id="sign-up">Sign up</button></a>
+                                <a onclick="repass()"><button class="tm-btn-subscribe" id="re-pass">Forgot password</button></a>
                             </form>
                         </div>
 
