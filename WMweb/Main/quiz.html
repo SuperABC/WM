@@ -8,17 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="js/word.js"></script>
     <nav>
         <div class="amber nav-wrapper">
             <div class="brandpad">
                 <a href="#" class="brand-logo">Word Member</a>
             </div>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a id="userid">User</a></li>
                 <li><a onclick="gotoNote()">Note</a></li>
-                <li><a onclick="gotoUser()" id="userid">User</a></li>
                 <li><a onclick="logOut()">Logout</a></li>
             </ul>
         </div>
@@ -32,11 +29,16 @@
             <div class="card-content white-text">
                 <input class="card-word cyan lighten-3" id="answer">
                 <button class="btn" style="padding-top: 0" onclick="judge()">Submit</button>
+                <button class="btn" style="padding-top: 0" onclick="hint()">Answer</button>
                 <br><br><br><br>
                 <p class="card-explanation" id="trans">Explanation.</p>
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/word.js"></script>
 
     <script>
         let answrer = null;
@@ -88,7 +90,7 @@
             jsonpCallback: "success_jsonpCallback"
         }).done(function (res) {
             if(res==="none"){
-                window.location.href='finish.html?' + id;
+                window.location.href='finish.html?' + compile(id);
                 return;
             }
             answrer=res.word;
@@ -104,6 +106,10 @@
                 document.getElementById("trans").innerText=tmp.trans;
             });
         });
+
+        function hint(){
+            M.toast({html: answrer})
+        }
 
         function judge() {
             if(document.getElementById("answer").value===answrer){

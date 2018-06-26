@@ -8,17 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/materialize.js"></script>
-<script type="text/javascript" src="js/word.js"></script>
 <nav>
     <div class="amber nav-wrapper">
         <div class="brandpad">
             <a href="#" class="brand-logo">Word Member</a>
         </div>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a id="userid">User</a></li>
             <li><a onclick="gotoNote()">Note</a></li>
-            <li><a onclick="gotoUser()" id="userid">User</a></li>
             <li><a onclick="logOut()">Logout</a></li>
         </ul>
     </div>
@@ -34,6 +31,10 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/materialize.js"></script>
+<script type="text/javascript" src="js/word.js"></script>
 
 </body>
 </html>

@@ -23,7 +23,7 @@
                         <li><a href="#jump1">Learn</a></li>
                         <li><a href="#jump2">Note&Quiz</a></li>
                         <li><a style="width:20%"></a></li>
-                        <li><a onclick="gotoUser()" id="userid">User</a></li>
+                        <li><a id="userid">User</a></li>
                         <li><a onclick="logOut()">Logout</a></li>
                     </ul>
                 </div>
@@ -189,10 +189,10 @@
     </footer>
     <script type="text/javascript">
         function gotoSearch(){
-            window.location.href='result.html?' + id;
+            window.location.href='result.html?' + compile(id);
         }
         function gotoRandLearn(){
-            window.location.href='learning.html?' + id + '&random';
+            window.location.href='learning.html?' + compile(id) + '&' + compile('random');
         }
         function gotoPlanLearn(){
             $.ajax({
@@ -203,19 +203,19 @@
                 jsonpCallback: "success_jsonpCallback"
             }).done(function (res) {
                 if(res!=='')
-                    window.location.href='learning.html?' + id;
+                    window.location.href='learning.html?' + compile(id);
                 else {
                     if(confirm("暂无背诵计划，是否创建背诵计划？")){
-                        window.location.href='start.html?' + id;
+                        window.location.href='start.html?' + compile(id);
                     }
                 }
             });
         }
         function gotoNote(){
-            window.location.href='note.html?' + id;
+            window.location.href='note.html?' + compile(id);
         }
         function gotoQuiz(){
-            window.location.href='quiz.html?' + id;
+            window.location.href='quiz.html?' + compile(id);
         }
     </script>
 

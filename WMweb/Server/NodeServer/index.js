@@ -224,6 +224,9 @@ function handle(data, res){
         connection.query(queryStr, function (err, rows) {
             if (err) console.log(err);
             else {
+                for(let i = 0; i < rows.length; i++){
+                    rows[i].trans = JSON.parse(wordSearch(rows[i].word)).trans;
+                }
                 res.writeHead(200, {'Content-Type': 'application/json'});
                 let json = JSON.stringify(rows);
                 res.end('success_jsonpCallback(' + json + ')');
@@ -322,6 +325,11 @@ function handle(data, res){
                 res.end('success_jsonpCallback(' + json + ')');
             }
         });
+    }
+    else{
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        let json = JSON.stringify('unknown');
+        res.end('success_jsonpCallback(' + json + ')');
     }
 }
 

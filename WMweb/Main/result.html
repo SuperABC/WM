@@ -14,8 +14,8 @@
                 <a href="#" class="brand-logo">Word Member</a>
             </div>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a id="userid">User</a></li>
                 <li><a onclick="gotoNote()">Note</a></li>
-                <li><a onclick="gotoUser()" id="userid">User</a></li>
                 <li><a onclick="logOut()">Logout</a></li>
             </ul>
         </div>
@@ -35,6 +35,11 @@
             <li class="waves-effect"><a href="#"><i class="material-icons">&gt;</i></a></li>
         </ul>
     </div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/word.js"></script>
+
     <script>
         let tmp = null;
         function addItem(word){
@@ -70,12 +75,9 @@
             });
         }
         function gotoDetail(word){
-            window.location.href='detail.html?' + id + '&word=' + word;
+            window.location.href='detail.html?' + compile(id) + '&' + compile('word=' + word);
         }
     </script>
 
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="js/word.js"></script>
 </body>
 </html>
