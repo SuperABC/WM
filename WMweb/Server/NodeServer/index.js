@@ -48,7 +48,14 @@ function handle(data, res){
         res.end('success_jsonpCallback(' + json + ')');
     }
     else if(data[1]==="sign_req"){
-        let queryStr = 'select * from users where id = \'' + data[2] + '\';';
+        if(data[2].indexOf(';')!==-1 || data[2].indexOf('\"')!==-1||
+            data[3].indexOf(';')!==-1 || data[3].indexOf('\"')!==-1){
+            res.writeHead(200, {'Content-Type': 'application/json'});
+            let json = JSON.stringify('danger');
+            res.end('success_jsonpCallback(' + json + ')');
+            return;
+        }
+        let queryStr = 'select * from users where id = \'' + data[2] + '\' or email = \'' + data[4] + '\';';
         connection.query(queryStr, function(err, rows) {
             if (err) console.log(err);
             else {
@@ -109,6 +116,11 @@ function handle(data, res){
                 if (rows.length > 0) {
                     res.writeHead(200, {'Content-Type': 'application/json'});
                     let json = JSON.stringify(rows[0].milestone);
+                    res.end('success_jsonpCallback(' + json + ')');
+                }
+                else{
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    let json = JSON.stringify("");
                     res.end('success_jsonpCallback(' + json + ')');
                 }
             }

@@ -11,3 +11,7 @@ WMweb/Server/WMServer/WMServer/WMServer.vcxproj.filters
 *.log
 *.tlog
 *.idb
+*.pdf
+*.zip
+*.rar
+*.sql

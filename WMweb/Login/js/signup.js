@@ -3,6 +3,12 @@ function signup(){
     let password = document.getElementById('signpassword').value;
     let confirm = document.getElementById('signconfirm').value;
     let email = document.getElementById('signemail').value;
+
+    if(email.indexOf('@')===-1 || email.indexOf('@')!==email.lastIndexOf('@') || email.split('@')[1].indexOf('.')===-1){
+        alert("email格式错误。");
+        return;
+    }
+
     if(password!==confirm){
         alert("两次输入的密码不一致。");
         return;
